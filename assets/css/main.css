@@ -2311,26 +2311,38 @@ input, select, textarea {
 
 		}
 
+/* Fix the Parent Container */
+#intro {
+    position: relative;
+    overflow: hidden;
+}
+
 /* Video Background Magic */
 .video-background {
-  background: #000;
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  overflow: hidden;
+    background: #000;
+    position: absolute; /* This keeps it inside #intro */
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Changed from -1 to 0 for better template compatibility */
 }
 
 .video-foreground,
 .video-background iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100vw;
-  height: 56.25vw; /* 16:9 Aspect Ratio */
-  min-height: 100vh;
-  min-width: 177.77vh; /* 16:9 Aspect Ratio */
-  transform: translate(-50%, -50%);
-  pointer-events: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 56.25vw; 
+    min-height: 100vh;
+    min-width: 177.77vh; 
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+/* Ensure the text content stays on TOP of the video */
+#intro .content {
+    position: relative;
+    z-index: 1;
 }
